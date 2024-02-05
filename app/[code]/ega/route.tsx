@@ -8,7 +8,7 @@ import { MobileTemplate } from "@/components/templates"
 export const runtime = 'edge'
  
 const size = {
-  width: 630,
+  width: 675,
   height: 1200,
 }
 
