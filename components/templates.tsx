@@ -5,9 +5,9 @@
 
 export function MobileTemplate({headerImageSource, qrCodeImageSource, mainInfo = "USER NOT FOUND", secondaryInfo} : {
     headerImageSource: string
-    qrCodeImageSource: string | undefined
-    mainInfo: React.ReactNode | undefined
-    secondaryInfo: React.ReactNode | undefined
+    qrCodeImageSource?: string
+    mainInfo?: React.ReactNode
+    secondaryInfo?: React.ReactNode
   }): React.ReactNode {
   
     return (

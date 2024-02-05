@@ -1,4 +1,6 @@
 import {type NextRequest } from 'next/server'
+import {get, uniq} from 'lodash'
+
 
 const EVENTJUICER_TOKEN = `${process.env.EVENTJUICER_TOKEN}`;
 
@@ -36,4 +38,14 @@ export async function getData(code: string) {
     return {}
   }
   
+}
+
+
+export function getRoles(roles: string[]): string {
+
+  if(!Array.isArray(roles)){
+    return ""
+  }
+
+  return uniq(roles).filter(role=>!role.includes("--")).join(", ")
 }

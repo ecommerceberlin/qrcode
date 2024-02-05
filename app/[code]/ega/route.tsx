@@ -1,9 +1,9 @@
 
 import { ImageResponse } from "next/og"
 import { NextRequest } from "next/server"
-import { getAbsoluteFilename, getFont, getData } from "@/lib/helpers"
+import { getAbsoluteFilename, getFont, getData, getRoles } from "@/lib/helpers"
 import { MobileTemplate } from "@/components/templates"
-
+import {get, uniq} from 'lodash'
 
 export const runtime = 'edge'
  
@@ -20,7 +20,7 @@ export async function GET(
 
     const api = await getData(params.code)
 
-    if(!("id" in api)){
+    if(!get(api, "id")){
       return new ImageResponse( <MobileTemplate 
         headerImageSource={getAbsoluteFilename(request, "/ega.png")}
        />, size)
@@ -31,8 +31,8 @@ export async function GET(
         <MobileTemplate 
           headerImageSource={getAbsoluteFilename(request, "/ega.png")}
           qrCodeImageSource={getAbsoluteFilename(request, `/${params.code}/qrcode`)} 
-          mainInfo={`${api.fname} / ${api.cname2}`}
-          secondaryInfo={`${api.event} / ${api.tickets.filter(role=>!role.includes("--")).join(", ")}`}
+          mainInfo={`${get(api, "fname", "")} / ${get(api, "cname2", "")}`}
+          secondaryInfo={`${get(api, "event", "")} / ${getRoles(get(api, "tickets", []))}`}
           />
       ),
       {
