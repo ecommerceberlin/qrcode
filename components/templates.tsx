@@ -14,14 +14,16 @@ export function MobileTemplate({headerImageSource, qrCodeImageSource, mainInfo =
   
       <div tw="flex w-full h-full flex-col justify-center bg-white">
           
-          <div tw="flex justify-center"><img tw="mb-10" src={headerImageSource} alt="" width="500" /></div>
+          <div tw="flex justify-center"><img tw="mb-30" src={headerImageSource} alt="" width="400" /></div>
 
 
-          {mainInfo? <div tw="flex justify-center text-5xl mb-30 text-gray-700">{mainInfo}</div>: null}
           
-          {qrCodeImageSource? <div tw="flex justify-center"><img src={qrCodeImageSource} width="500" height="500" alt="" /></div>: null}
+          {qrCodeImageSource? <div tw="flex justify-center mb-20"><img src={qrCodeImageSource} width="500" height="500" alt="" /></div>: null}
 
-          {secondaryInfo? <div tw="flex justify-center text-xl mt-20 text-gray-700">{secondaryInfo}</div>: null}
+
+          {mainInfo? <div tw="flex justify-center text-5xl mb-5 text-gray-700">{mainInfo}</div>: null}
+
+          {secondaryInfo? <div tw="flex justify-center text-xl text-gray-400">{secondaryInfo}</div>: null}
 
         </div>
   
