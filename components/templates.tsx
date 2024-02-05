@@ -21,9 +21,9 @@ export function MobileTemplate({headerImageSource, qrCodeImageSource, mainInfo =
           {qrCodeImageSource? <div tw="flex justify-center mb-20"><img src={qrCodeImageSource} width="500" height="500" alt="" /></div>: null}
 
 
-          {mainInfo? <div tw="flex justify-center text-5xl mb-5 text-gray-700">{mainInfo}</div>: null}
+          {mainInfo? <div tw="flex justify-center text-5xl mx-10 mb-5 text-gray-700">{mainInfo}</div>: null}
 
-          {secondaryInfo? <div tw="flex justify-center text-xl text-gray-400">{secondaryInfo}</div>: null}
+          {secondaryInfo? <div tw="flex justify-center text-xl text-gray-400 mx-10">{secondaryInfo}</div>: null}
 
         </div>
   
