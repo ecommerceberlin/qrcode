@@ -13,11 +13,24 @@ function getAbsoluteFilename(request: NextRequest, path: string): string{
 }
 
 
-const getFont = async () => { 
+async function getFont(){
   const res = await fetch( new URL('@/fonts/Inter/static/Inter-SemiBold.ttf', import.meta.url) ); 
   return await res.arrayBuffer(); 
-};
+}
 
+async function getData(url: string) {
+  const res = await fetch(url, {cache: "no-cache"})
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  try{
+    return await res.json()
+  }catch(err){
+    return {}
+  }
+  
+}
+ 
 
 
 export async function GET(
@@ -25,6 +38,11 @@ export async function GET(
   { params }: { params: { code: string }} 
   ) {
  
+
+    const api = await getData("https://dupa1111.free.beeceptor.com")
+
+
+
     return new ImageResponse(
       (
         // ImageResponse JSX element
