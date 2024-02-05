@@ -41,7 +41,7 @@ export async function GET(
         // ImageResponse JSX element
         <div tw="flex w-full h-full flex-col justify-center bg-white">
         <div tw="flex justify-center text-5xl mb-5">asd</div>
-        <div tw="flex justify-center"><img src={cover} width="500" height="500" /></div>
+        <div tw="flex justify-center"><img src={cover} width="500" height="500" alt="" /></div>
         </div>
       ),
       // ImageResponse options

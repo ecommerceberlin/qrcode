@@ -8,7 +8,7 @@ export const runtime = 'edge'
 
 
 
-export const opts = {
+const QRCodeOpts = {
   errorCorrectionLevel: 'Q',
   type: 'svg',
   // quality: 0.3,
@@ -38,7 +38,7 @@ export async function GET(
 
 
 
-    const blob = await QRCode.toString(`https://expojuicer.com/p/${params.code}`, opts)
+    const blob = await QRCode.toString(`https://expojuicer.com/p/${params.code}`, QRCodeOpts)
 
 
     const response = new NextResponse(blob)
