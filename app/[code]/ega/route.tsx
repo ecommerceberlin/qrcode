@@ -32,7 +32,7 @@ export async function GET(
           headerImageSource={getAbsoluteFilename(request, "/ega.png")}
           qrCodeImageSource={getAbsoluteFilename(request, `/${params.code}/qrcode`)} 
           mainInfo={`${api.fname} / ${api.cname2}`}
-          secondaryInfo={`${api.event} / ${api.tickets.join(", ")}`}
+          secondaryInfo={`${api.event} / ${api.tickets.filter(role=>!role.includes("--")).join(", ")}`}
           />
       ),
       {
